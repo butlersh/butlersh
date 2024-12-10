@@ -2,7 +2,7 @@
 title: Getting started
 ---
 
-Learn how to install Butlersh in your server in under 1 minute. {% .lead %}
+Learn how to install Butlersh in your servers in under 1 minute. {% .lead %}
 
 {% quick-links %}
 
@@ -23,12 +23,20 @@ Learn how to install Butlersh in your server in under 1 minute. {% .lead %}
 Download the installer.sh file and execute it.
 
 ```bash
-wget -qO https://butlersh-stg.confetticode.com/installer.sh > installer.sh
+curl -o- https://butlersh-stg.confetticode.com/installer.sh | bash
+```
 
-bash installer.sh
+```bash
+wget -qO- https://butlersh-stg.confetticode.com/installer.sh | bash
 ```
 
 Check if the butlersh cli is available after installation by running `butlersh` command.
+
+```bash
+butlersh
+```
+
+You should see the following output
 
 ```bash
 Butlersh CLI version dev-main
