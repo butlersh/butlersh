@@ -1,14 +1,15 @@
 export const navigation = [
     {
-        title: 'Introduction',
+        title: 'Get Started',
         links: [
-            { title: 'Getting started', href: '/' },
+            { title: 'Introduction', href: '/' },
+            { title: 'Installation', href: '/docs/installation' },
         ],
     },
     {
         title: 'Commands',
         links: [
-            { title: 'Security setup', href: '/docs/security-setup' },
+            { title: 'Security Setup', href: '/docs/security-setup' },
         ],
-    },
+    }
 ]
