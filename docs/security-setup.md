@@ -1,5 +1,5 @@
 ---
-title: Security setup
+title: Security Setup
 nextjs:
   metadata:
     title: Security setup

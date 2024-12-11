@@ -9,7 +9,10 @@ export const navigation = [
     {
         title: 'Commands',
         links: [
-            { title: 'Security Setup', href: '/docs/security-setup' },
+            { title: 'security:setup', href: '/docs/security-setup' },
+            { title: 'mysql:setup', href: '/docs/mysql-setup' },
+            { title: 'nginx:setup', href: '/docs/nginx-setup' },
+            { title: 'php:setup', href: '/docs/php-setup' },
         ],
     }
 ]
