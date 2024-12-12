@@ -9,7 +9,7 @@ help_nginx_setup_command() {
 }
 
 run_nginx_setup_command() {
-  B_CONFIG_URL="https://raw.githubusercontent.com/butlersh/core/build/config"
+  B_CONFIG_URL="https://raw.githubusercontent.com/butlersh/butlersh/build/config"
   B_USER="forge"
 
   for OPTION in "$@"
