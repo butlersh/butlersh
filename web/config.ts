@@ -2,21 +2,20 @@
 
 const config = {
     name: 'Butlersh',
-    defaultTitle: 'Butlersh - Server Management Tool',
+    title: 'Butlersh - Server Management Tool',
     description:
-        'Butlersh have done complicated stuff, which help manage servers more easily via fluent commands',
+        'Butlersh have done complicated stuff. So, it\' more convenient to manage servers using fluent commands',
+    github: 'https://github.com/butlersh/butlersh',
 
-    hero: {
-        language: 'bash',
-        code: `wget -qO https://butlersh-stg.confetticode.com/installer.sh > installer.sh
+    logomarkColor: '#F97316',
 
-bash installer.sh
-
-butlersh --version`,
-        tabs: [
-            { name: 'Installation', isActive: true },
-        ]
-    },
+    icon: {
+        primary: [
+            { stopColor: '#FB923C' },
+            { stopColor: '#F97316', offset: '.527' },
+            { stopColor: '#EA580C', offset: 1 },
+        ],
+    }
 }
 
 export default config

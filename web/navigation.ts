@@ -1,14 +1,18 @@
 export const navigation = [
     {
-        title: 'Introduction',
+        title: 'Get Started',
         links: [
-            { title: 'Getting started', href: '/' },
+            { title: 'Introduction', href: '/' },
+            { title: 'Installation', href: '/docs/installation' },
         ],
     },
     {
         title: 'Commands',
         links: [
-            { title: 'Security setup', href: '/docs/security-setup' },
+            { title: 'security:setup', href: '/docs/security-setup' },
+            { title: 'mysql:setup', href: '/docs/mysql-setup' },
+            { title: 'nginx:setup', href: '/docs/nginx-setup' },
+            { title: 'php:setup', href: '/docs/php-setup' },
         ],
-    },
+    }
 ]
