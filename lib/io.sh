@@ -15,6 +15,12 @@ io_error() {
   echo -e "\e[31m$1\e[0m"
 }
 
+io_print_info() {
+    io_line
+    io_line "  <success>[INFO]</success> $1"
+    io_line
+}
+
 io_print_error() {
     io_line
     io_line "  <error>[ERROR]</error> $1"

@@ -6,16 +6,18 @@ rm -rf $CLI_NAME
 
 echo '#!/usr/bin/env bash' > "$CLI_NAME"
 
-# Prepare libs
-for LIB_NAME in check core io
+LIBS=$(ls ./lib)
+
+for LIB_FILE_NAME in $LIBS
 do
-  cat lib/$LIB_NAME.sh >> "$CLI_NAME"
+  cat "lib/$LIB_FILE_NAME" >> "$CLI_NAME"
 done
 
-# Prepare commands
-for COMMAND_NAME in help list mysql-setup nginx-setup php-setup security-setup
+COMMANDS=$(ls ./command)
+
+for COMMAND_FILE_NAME in $COMMANDS
 do
-  cat "command/$COMMAND_NAME.sh" >> "$CLI_NAME"
+  cat "command/$COMMAND_FILE_NAME" >> "$CLI_NAME"
 done
 
 cat main.sh >> "$CLI_NAME"

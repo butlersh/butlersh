@@ -3,14 +3,14 @@ help_nginx_setup_command() {
     B_DESCRIPTION='Set up Nginx for the current server'
     B_OPTS=(
         '--user=USER'
-        'The user is for running nginx workers <comment>[default: "forge"]</comment>'
+        'The user is for running nginx workers <comment>[default: "www-data"]</comment>'
     )
     display_help
 }
 
 run_nginx_setup_command() {
   B_CONFIG_URL="https://raw.githubusercontent.com/butlersh/butlersh/build/config"
-  B_USER="forge"
+  B_USER="www-data"
 
   for OPTION in "$@"
   do
