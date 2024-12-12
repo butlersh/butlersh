@@ -2,4 +2,6 @@
 .vscode/
 vendor/
 composer.lock
+butler
 butlersh
+test.sh
