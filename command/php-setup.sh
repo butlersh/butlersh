@@ -1,25 +1,17 @@
-
-
 help_php_setup_command() {
-  io_comment 'Description:'
-  io_line '  Set up PHP for the current server'
-  io_line
-
-  io_comment 'Usage:'
-  io_line '  php:setup [options] [--] <version>'
-  io_line
-
-  io_comment 'Arguments:'
-  io_line '  <success>version</success>        The expected PHP version <comment>[e.g. "8.4"]</comment>'
-  io_line
-
-  io_comment 'Options:'
-  io_line '  <success>    --user=USER</success>    The user is for running PHP-FPM workers <comment>[default: "forge"]</comment>'
-  io_line '  <success>    --group=GROUP</success>  The group is for running PHP-FPM workers <comment>[default: "forge"]</comment>'
-  io_line '  <success>-h, --help</success>         Display help for the given command. When no command is given, display help for the <success>list</success> command'
-  io_line '  <success>-V, --version</success>      Display this application version'
-
-  exit 0
+    B_COMMAND_NAME='php:setup'
+    B_DESCRIPTION='Set up PHP for the current server'
+    B_ARGS=(
+        'version'
+        'The expected PHP version <comment>[e.g. "8.4"]</comment>'
+    )
+    B_OPTS=(
+        '--user=USER'
+        'The user is for running PHP-FPM workers <comment>[default: "forge"]</comment>'
+        '--group=GROUP'
+        'The group is for running PHP-FPM workers <comment>[default: "forge"]</comment>'
+    )
+    display_help
 }
 
 function run_php_setup_command() {

@@ -1,14 +1,11 @@
 help_security_setup_command() {
-  io_comment 'Description:'
-  io_line '  Set up security for the current server'
-  io_line
-
-  io_comment 'Options:'
-  io_line '  <success>    --user=USER</success>  The user name you want to create <comment>[default: "forge"]</comment>'
-  io_line '  <success>-h, --help</success>       Display help for the given command. When no command is given, display help for the <success>list</success> command'
-  io_line '  <success>-V, --version</success>    Display this application version'
-
-  exit 0
+    B_COMMAND_NAME='security:setup'
+    B_DESCRIPTION='Set up security for the current server'
+    B_OPTS=(
+        '--user=USER'
+        'The user name you want to create <comment>[default: "forge"]</comment>'
+    )
+    display_help
 }
 
 run_security_setup_command() {

@@ -1,13 +1,13 @@
 #!/usr/bin/env bash
 
-CLI_NAME='butler'
+CLI_NAME='butlersh'
 
 rm -rf $CLI_NAME
 
 echo '#!/usr/bin/env bash' > "$CLI_NAME"
 
 # Prepare libs
-for LIB_NAME in check common io
+for LIB_NAME in check core io
 do
   cat lib/$LIB_NAME.sh >> "$CLI_NAME"
 done

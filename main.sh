@@ -1,6 +1,4 @@
-export B_ENV=${env:-production}
-export B_VERSION=${env:-dev-main}
-
+B_VERSION='dev-main'
 B_COMMAND=''
 B_OPTIONS=()
 B_OPTIONS_STR=''
@@ -35,6 +33,7 @@ do
         B_OPTIONS_STR="$B_OPTIONS_STR $PARAM"
     elif [ -z "$B_COMMAND" ]; then
         B_COMMAND="$PARAM"
+        B_NEEDS_HELP_COMMAND="$PARAM"
     else
         B_ARGUMENTS+=("$PARAM")
         B_ARGUMENTS_STR="$B_ARGUMENTS_STR $PARAM"
