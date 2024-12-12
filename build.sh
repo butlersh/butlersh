@@ -1,0 +1,23 @@
+#!/usr/bin/env bash
+
+CLI_NAME='butler'
+
+rm -rf $CLI_NAME
+
+echo '#!/usr/bin/env bash' > "$CLI_NAME"
+
+# Prepare libs
+for LIB_NAME in check common io
+do
+  cat lib/$LIB_NAME.sh >> "$CLI_NAME"
+done
+
+# Prepare commands
+for COMMAND_NAME in help list mysql-setup nginx-setup php-setup security-setup
+do
+  cat "command/$COMMAND_NAME.sh" >> "$CLI_NAME"
+done
+
+cat main.sh >> "$CLI_NAME"
+
+chmod +x "$CLI_NAME"
