@@ -5,7 +5,7 @@ help_security_setup_command() {
         '--user=USER'
         'The user name you want to create <comment>[default: "forge"]</comment>'
     )
-    display_help
+    describe_command
 }
 
 run_security_setup_command() {

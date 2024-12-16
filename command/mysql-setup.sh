@@ -4,7 +4,7 @@ help_mysql_setup_command() {
     B_ARGS=(
         'version' 'The expected MySQL version <comment>[e.g. "8.0"]</comment>'
     )
-    display_help
+    describe_command
 }
 
 run_mysql_setup_command() {

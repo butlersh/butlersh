@@ -5,11 +5,11 @@ help_list_command() {
         'namespace'
         'The command namespace'
     )
-    display_help
+    describe_command
 }
 
 run_list_command() {
-    io_line "<success>Butlersh</success> version <comment>dev-main</comment>"
+    io_line "<success>$B_APP_NAME</success> version <comment>$B_APP_VERSION</comment>"
     io_line
 
     io_comment 'Usage:'

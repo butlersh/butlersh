@@ -8,7 +8,7 @@ help_php_setup_command() {
         '--user=USER' 'The user is for running PHP-FPM workers <comment>[default: "www-data"]</comment>'
         '--group=GROUP' 'The group is for running PHP-FPM workers <comment>[default: "www-data"]</comment>'
     )
-    display_help
+    describe_command
 }
 
 function run_php_setup_command() {

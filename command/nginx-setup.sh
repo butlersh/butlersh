@@ -5,7 +5,7 @@ help_nginx_setup_command() {
         '--user=USER'
         'The user is for running nginx workers <comment>[default: "www-data"]</comment>'
     )
-    display_help
+    describe_command
 }
 
 run_nginx_setup_command() {

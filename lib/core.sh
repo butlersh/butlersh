@@ -16,7 +16,6 @@ B_GLOBAL_OPTS=(
 '-v|vv|vvv, --verbose'
 'Increase the verbosity of messages: 1 for normal output, 2 for more verbose output and 3 for debug'
 )
-B_AUTO_EXIT='yes'
 
 describe_arguments() {
     MAX_WIDTH=$1
@@ -73,7 +72,7 @@ describe_options() {
     done
 }
 
-display_help() {
+describe_command() {
     # Detect the max width of an argument or option name
     MAX_WIDTH=0
 
@@ -163,8 +162,16 @@ display_help() {
     fi
 }
 
-display_version() {
-  io_line "<success>Butlersh</success> version <comment>$B_VERSION</comment>"
+describe_version() {
+    if [ -z "$B_APP_NAME" ]; then
+        B_APP_NAME='Butler'
+    fi
 
-  exit 0
+    if [ -z "$B_APP_VERSION" ]; then
+        B_APP_VERSION='latest'
+    fi
+
+    io_line "<success>$B_APP_NAME</success> version <comment>$B_APP_VERSION</comment>"
+
+    exit 0
 }

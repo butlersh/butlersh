@@ -1,0 +1,31 @@
+#!/usr/bin/env bash
+
+BIN_DIR=$( cd -- "$( dirname -- "${BASH_SOURCE[0]}" )" &> /dev/null && pwd)
+
+CLI_NAME='butler'
+
+CLI_FILE="$BIN_DIR/../build/$CLI_NAME"
+
+rm -rf $CLI_FILE
+
+echo '#!/usr/bin/env bash' > "$CLI_FILE"
+
+# Concat lib/*.sh files
+LIBS=$(ls "$BIN_DIR/../lib")
+
+for LIB_FILE_NAME in $LIBS
+do
+  cat "$BIN_DIR/../lib/$LIB_FILE_NAME" >> "$CLI_FILE"
+done
+
+# Concat command/*.sh files
+COMMANDS=$(ls "$BIN_DIR/../command")
+
+for COMMAND_FILE_NAME in $COMMANDS
+do
+  cat "$BIN_DIR/../command/$COMMAND_FILE_NAME" >> "$CLI_FILE"
+done
+
+cat "$BIN_DIR/../main.sh" >> "$CLI_FILE"
+
+chmod +x "$CLI_FILE"

@@ -1,11 +1,17 @@
-B_VERSION='dev-main'
+# GLOBAL variables starts with "B_"
+B_APP_NAME='Butler'
+B_APP_VERSION='latest'
+B_AUTO_EXIT='yes'
+B_NEEDS_HELP="no"
+B_NEEDS_HELP_COMMAND=''
+B_ANSI='yes'
+
+# TODO: LOCAL variables in the main.sh. They should be different in order to be compared to GLOBAL variables.
 B_COMMAND=''
 B_OPTIONS=()
 B_OPTIONS_STR=''
 B_ARGUMENTS=()
 B_ARGUMENTS_STR=''
-B_NEEDS_HELP="no"
-B_NEEDS_HELP_COMMAND=''
 
 for PARAM in "$@"
 do
@@ -23,7 +29,7 @@ do
         fi
     elif [ "$NAME" = '--version' ]; then
         if [ "$PARAM" = '--version' ]; then
-            display_version
+            describe_version
         else
             io_print_error "The --version option does not accept a value"
             exit 1

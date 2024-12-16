@@ -6,7 +6,7 @@ run_help_command() {
             'command_name'
             'The command name <comment>[default: "help"]</comment>'
         )
-        display_help
+        describe_command
     fi
 
     case $1 in
@@ -26,8 +26,7 @@ run_help_command() {
             help_security_setup_command
         ;;
         *)
-            io_print_error "The <comment>$RUNNING_COMMAND</comment> command was not found."
-            exit 1
+            io_print_error "The <comment>$RUNNING_COMMAND</comment> command was not found." exit 1
         ;;
     esac
 }
