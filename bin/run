@@ -3,19 +3,19 @@
 BIN_DIR=$( cd -- "$( dirname -- "${BASH_SOURCE[0]}" )" &> /dev/null && pwd )
 
 # Include lib/*.sh files
-LIBS=$(ls "$BIN_DIR/../lib")
+LIBS=$(ls "$BIN_DIR/../src/lib")
 
 for LIB_FILE_NAME in $LIBS
 do
-  source "$BIN_DIR/../lib/$LIB_FILE_NAME"
+  source "$BIN_DIR/../src/lib/$LIB_FILE_NAME"
 done
 
 # Include command/*.sh files
-COMMANDS=$(ls "$BIN_DIR/../command")
+COMMANDS=$(ls "$BIN_DIR/../src/command")
 
 for COMMAND_FILE_NAME in $COMMANDS
 do
-  source "$BIN_DIR/../command/$COMMAND_FILE_NAME"
+  source "$BIN_DIR/../src/command/$COMMAND_FILE_NAME"
 done
 
 source "$BIN_DIR/../main.sh"

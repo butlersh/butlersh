@@ -1,5 +1,5 @@
 Describe 'io_line'
-    Include lib/io.sh
+    Include src/lib/io.sh
 
     It 'parses success tag'
         When call io_line 'I am trying <success>ShellSpec</success>'
