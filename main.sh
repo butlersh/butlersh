@@ -87,6 +87,10 @@ run() {
             run_mysql_setup_command "$@"
         ;;
 
+        "nginx:purge")
+            run_nginx_purge_command "$@"
+        ;;
+
         "nginx:setup")
             run_nginx_setup_command "$@"
         ;;

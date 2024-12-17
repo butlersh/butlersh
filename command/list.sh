@@ -25,6 +25,7 @@ run_list_command() {
         'list'              'List commands'
         'mysql:purge'       'Purge MySQL from the current server'
         'mysql:setup'       'Set up MySQL for the current server'
+        'nginx:purge'       'Purge Nginx from the current server'
         'nginx:setup'       'Set up Nginx for the current server'
         'php:purge'         'Purse PHP from the current server'
         'php:setup'         'Set up PHP for the current server'
