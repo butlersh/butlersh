@@ -14,10 +14,6 @@ ButlerShell is a server management tool. {% .lead %}
 
 ## What is ButlerShell?
 
-Butlersh is a server management command line tool, currently written in bash.
+ButlerShell is a server management command line tool, currently written in bash.
 It's done complicated things behind the sense, so you can manage your servers more easily via fluent commands.
-The very first version of Butlersh supports 4 simple tasks:
-- Setting up security
-- Setting up MySQL
-- Setting up Nginx
-- Setting up PHP
+The very first version of ButlerShell interacts with 3 software: MySQL, Nginx and PHP.

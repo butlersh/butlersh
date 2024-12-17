@@ -1,9 +1,9 @@
 ---
-title: MySQL Setup
+title: MySQL
 nextjs:
   metadata:
-    title: MySQL Setup
-    description: Setting up MySQL for a server
+    title: MySQL
+    description: Install or remove MySQL on a server.
 ---
 
 ## Usage
@@ -17,3 +17,9 @@ butler mysql:setup 8.0
 {% callout title="The root password" %}
 The root password is "secret" by default. You may change it by using the "mysql_secure_installation" command.
 {% /callout %}
+
+Remove MySQL from the server.
+
+```bash
+butler mysql:purge
+```
