@@ -24,10 +24,10 @@ curl -o- https://butlersh-stg.confetticode.com/installer.sh | bash
 wget -qO- https://butlersh-stg.confetticode.com/installer.sh | bash
 ```
 
-Check if the Butlersh CLI is available after installation by running `butlersh` command.
+Check if the Butlersh CLI is available after installation by running `butler` command.
 
 ```bash
-butlersh
+butler
 ```
 
 You should see the following output

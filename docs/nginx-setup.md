@@ -11,7 +11,7 @@ nextjs:
 Run this command with your expected user, which is for running nginx workers.
 
 ```bash
-butlersh nginx:setup --user=forge
+butler nginx:setup --user=forge
 ```
 
 {% callout title="Configuration" %}

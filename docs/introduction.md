@@ -2,17 +2,17 @@
 title: Introduction
 ---
 
-Butlersh is a server management tool. {% .lead %}
+ButlerShell is a server management tool. {% .lead %}
 
 {% quick-links %}
 
-{% quick-link title="Installation" icon="installation" href="/docs/installation" description="Step-by-step guides to setting up butlersh CLI on servers." /%}
+{% quick-link title="Installation" icon="installation" href="/docs/installation" description="Step-by-step guides to setting up the butler CLI on a server." /%}
 
 {% /quick-links %}
 
 ---
 
-## What is Butlersh?
+## What is ButlerShell?
 
 Butlersh is a server management command line tool, currently written in bash.
 It's done complicated things behind the sense, so you can manage your servers more easily via fluent commands.

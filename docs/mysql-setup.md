@@ -11,7 +11,7 @@ nextjs:
 Run this command with a specific MySQL version, it currently supports 8.0 only.
 
 ```bash
-butlersh mysql:setup 8.0
+butler mysql:setup 8.0
 ```
 
 {% callout title="The root password" %}

@@ -15,7 +15,7 @@ enable fail2ban, install a few common software and upgrade packages for better s
 Run this command with your expected username.
 
 ```bash
-butlersh security:setup --user=forge
+butler security:setup --user=forge
 ```
 
 {% callout type="note" title="Choosing a username" %}
