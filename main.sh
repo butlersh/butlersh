@@ -79,6 +79,10 @@ run() {
             run_list_command "$@"
         ;;
 
+        "mysql:purge")
+            run_mysql_purge_command "$@"
+        ;;
+
         "mysql:setup")
             run_mysql_setup_command "$@"
         ;;

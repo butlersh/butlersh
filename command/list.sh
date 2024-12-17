@@ -23,10 +23,11 @@ run_list_command() {
     F_LINES=(
         'help'              'Display help for a command'
         'list'              'List commands'
+        'mysql:purge'       'Purge MySQL from the current server'
         'mysql:setup'       'Set up MySQL for the current server'
         'nginx:setup'       'Set up Nginx for the current server'
-        'php:setup'         'Set up PHP for the current server'
         'php:purge'         'Purse PHP from the current server'
+        'php:setup'         'Set up PHP for the current server'
         'security:setup'    'Set up security for the current server'
     )
         
