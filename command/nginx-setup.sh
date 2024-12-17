@@ -2,54 +2,37 @@ help_nginx_setup_command() {
     B_COMMAND_NAME='nginx:setup'
     B_DESCRIPTION='Set up Nginx for the current server'
     B_OPTS=(
-        '--user=USER'
-        'The user is for running nginx workers <comment>[default: "www-data"]</comment>'
+        '--user=USER' 'The user is for running nginx workers <comment>[default: "www-data"]</comment>'
     )
     describe_command
 }
 
 run_nginx_setup_command() {
-  B_CONFIG_URL="https://raw.githubusercontent.com/butlersh/butlersh/build/config"
-  B_USER="www-data"
+    F_USER="www-data"
 
-  for OPTION in "$@"
-  do
-      NAME="$(cut -d'=' -f1 <<<"$OPTION")"
-      VALUE="$(cut -d'=' -f2 <<<"$OPTION")"
+    F_ARGS_COUNT=0
 
-      if [ "$NAME" = '--user' ]; then
-          B_USER="$VALUE"
-      fi
-  done
+    for F_PARAM in "$@"
+    do
+        if [ "$F_PARAM" = 'nginx:setup' ]; then
+            continue
+        fi
 
-  check_supported_os
-  check_root_privileges
+        NAME="$(cut -d'=' -f1 <<<"$PARAM")"
+        VALUE="$(cut -d'=' -f2 <<<"$PARAM")"
 
-  export DEBIAN_FRONTEND=noninteractive
-  export NEEDRESTART_MODE=a
+        if [ "$NAME" = '--user' ]; then
+            F_USER="$VALUE"
+        elif [[ "$F_PARAM" == -* ]] || [[ "$F_PARAM" == --* ]]; then
+            io_print_error "The <comment>$F_PARAM</comment> option is unsupported." && exit 1
+        else
+            F_ARGS_COUNT=$(expr $F_ARGS_COUNT + 1)
+        fi
+    done
 
-  add-apt-repository -y ppa:ondrej/nginx
+    if [ "$F_ARGS_COUNT" -gt "0" ]; then
+        io_print_error "Too many arguments (expected: 0, given: $F_ARGS_COUNT)" && exit 1
+    fi
 
-  # Install nginx with certbot to use free SSL via Letsencrypt.
-  apt-get install -y nginx certbot python3-certbot-nginx
-
-  if [ -d /etc/nginx ]; then
-    rm -rf /etc/nginx.old
-
-    mv /etc/nginx /etc/nginx.old
-  fi
-
-  git clone https://github.com/h5bp/server-configs-nginx.git /etc/nginx
-
-  mkdir -p /etc/nginx/extra
-
-  wget -O fastcgi.conf "$B_CONFIG_URL/fastcgi.conf" --quiet
-  wget -O fastcgi-php.conf "$B_CONFIG_URL/fastcgi-php.conf" --quiet
-
-  mv fastcgi.conf /etc/nginx/extra/fastcgi.conf
-  mv fastcgi-php.conf /etc/nginx/extra/fastcgi-php.conf
-
-  sed -i "s/www-data/${B_USER}/g" /etc/nginx/nginx.conf;
-
-  systemctl restart nginx
+    install_nginx $F_USER
 }
