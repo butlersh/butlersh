@@ -7,6 +7,10 @@ check_root_privileges() {
 }
 
 check_supported_os() {
+    if [ "$B_DISABLE_OS_CHECK" = 'yes' ]; then
+        return
+    fi
+
     OS_DISTRO_NAME='unsupported'
     OS_RELEASE_NAME='unsupported'
 

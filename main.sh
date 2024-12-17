@@ -1,7 +1,10 @@
 # GLOBAL variables starts with "B_"
 B_APP_NAME='Butler'
 B_APP_VERSION='latest'
+
 B_AUTO_EXIT='yes'
+B_DISABLE_OS_CHECK='yes'
+
 B_NEEDS_HELP="no"
 B_NEEDS_HELP_COMMAND=''
 B_ANSI='yes'
@@ -88,13 +91,16 @@ run() {
             run_php_setup_command "$@"
         ;;
 
+        "php:purge")
+            run_php_purge_command "$@"
+        ;;
+
         "security:setup")
             run_security_setup_command "$@"
         ;;
 
         *)
-            io_print_error "The <comment>$RUNNING_COMMAND</comment> command was not found."
-            exit 1
+            io_print_error "The <comment>$RUNNING_COMMAND</comment> command was not found." && exit 1
         ;;
     esac
 }

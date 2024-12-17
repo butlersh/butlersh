@@ -61,11 +61,15 @@ function run_php_setup_command() {
     check_supported_os
     check_root_privileges
 
+    export DEBIAN_FRONTEND=noninteractive
+
+    apt-get update && apt-get install -y locales && locale-gen en_US.UTF-8
+
     locale-gen en_US.UTF-8
     export LANG=en_US.UTF-8
     export LC_ALL=en_US.UTF-8
 
-    export DEBIAN_FRONTEND=noninteractive
+    apt-get install -y software-properties-common
 
     # TODO: Check if group exists.
 
@@ -103,10 +107,12 @@ function run_php_setup_command() {
 
     # Allow to run "sudo systemctl [reload|restart|status] php*-fpm" without password prompt.
     export PHP_FPM_ACTIONS="
-    $B_USER ALL=(ALL) NOPASSWD: /usr/bin/systemctl reload php*-fpm
-    $B_USER ALL=(ALL) NOPASSWD: /usr/bin/systemctl restart php*-fpm
-    $B_USER ALL=(ALL) NOPASSWD: /usr/bin/systemctl status php*-fpm"
+$B_USER ALL=(ALL) NOPASSWD: /usr/bin/systemctl reload php*-fpm
+$B_USER ALL=(ALL) NOPASSWD: /usr/bin/systemctl restart php*-fpm
+$B_USER ALL=(ALL) NOPASSWD: /usr/bin/systemctl status php*-fpm"
     if ! echo "${PHP_FPM_ACTIONS}" | tee "/etc/sudoers.d/$B_USER"; then
-        echo "butlersh.WARNING: Can not configure /etc/sudoers.d/$B_USER file. You have to configure it by yourself."
+        io_print_warning "Can not configure /etc/sudoers.d/$B_USER file. You have to configure it by yourself."
     fi
+
+    io_print_info "Installed PHP $B_PHP_VERSION"
 }

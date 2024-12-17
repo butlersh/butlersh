@@ -22,6 +22,9 @@ run_help_command() {
         "php:setup")
             help_php_setup_command
         ;;
+        "php:purge")
+            help_php_purge_command
+        ;;
         "security:setup")
             help_security_setup_command
         ;;
